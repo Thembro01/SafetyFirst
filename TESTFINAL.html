@@ -75,7 +75,7 @@
    var start2 = new google.maps.LatLng(38.648471, -90.326782);
    var end2 = new google.maps.LatLng(38.656456, -90.309841);
    
-   marker2=new google.maps.Marker({map:map, icon:"http://www.wcbuzz.com/file/2015/09/car-service-car-with-tool-icon-on-yellow-map-pointer-vector-illustration_187389968.jpg.png"});
+   marker2=new google.maps.Marker({map:map, icon:"https://i.imgur.com/hQQcUNl.png"});
    var request2 = {
     origin:start2,
     destination:end2,
@@ -83,7 +83,7 @@
    };
    directionsService2.route(request2, function(result, status) { //when just route it uses new coords, when route2 it uses old coords
     if (status == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result.routes[0].overview_path, marker2, 1500);
+     autoRefresh(map, result.routes[0].overview_path, marker2, 5000);
     }
    });
   }
