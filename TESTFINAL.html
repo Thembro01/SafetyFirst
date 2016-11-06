@@ -50,7 +50,7 @@
     setTimeout(function(coords) {
      route.getPath().push(coords);
      moveMarker(map, marker, coords);
-    }, speed, pathCoords[i]);
+    }, speed*i, pathCoords[i]);
    }
   }
   
