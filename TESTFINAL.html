@@ -77,9 +77,13 @@
    var alertOnce = 1;
    if(alertOnce){
    setInterval(function(){
+<<<<<<< HEAD
    var msg = new SpeechSynthesisUtterance('There is an ambulance approaching your vicinity. Please proceed with caution.');
     window.speechSynthesis.speak(msg);
    alert("There is an ambulance approaching your vicinity. Please proceed with caution.");
+=======
+   alert("There is an ambulance approaching your vicinity!");
+>>>>>>> origin/master
    alert = 0;},8000);
    }
    marker2=new google.maps.Marker({map:map, icon:"https://i.imgur.com/hQQcUNl.png"});
