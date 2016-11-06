@@ -33,7 +33,7 @@
    //map.panTo(latlng); //change it to map to your location
   }
 
-  function autoRefresh(map, pathCoords, marker) {
+  function autoRefresh(map, pathCoords, marker, speed) {
    var i, route, marker;
     
    route = new google.maps.Polyline({
@@ -50,7 +50,7 @@
     setTimeout(function(coords) {
      route.getPath().push(coords);
      moveMarker(map, marker, coords);
-    }, 600 * i, pathCoords[i]);
+    }, speed * i, pathCoords[i]);
    }
   }
   
@@ -66,7 +66,7 @@
    };
    directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result.routes[0].overview_path, marker);
+     autoRefresh(map, result.routes[0].overview_path, marker, 600);
     }
    });
   }
@@ -83,7 +83,7 @@
    };
    directionsService2.route(request2, function(result, status) { //when just route it uses new coords, when route2 it uses old coords
     if (status == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result.routes[0].overview_path, marker2);
+     autoRefresh(map, result.routes[0].overview_path, marker2, 1500);
     }
    });
   }
