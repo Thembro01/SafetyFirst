@@ -19,29 +19,27 @@
  <script>
   function initialize() {
    var map = new google.maps.Map(document.getElementById("map"), {
-     center: {lat: 38.633063, lng: -90.312007},
+     center: {lat: 38.533063, lng: -90.312007},
      zoom: 15,
      mapTypeId: google.maps.MapTypeId.ROADMAP
    });
    
    getDirections(map);
-   getDirections2(map); //**************
+   getDirections2(map); 
   }
 
   function moveMarker(map, marker, latlng) {
    marker.setPosition(latlng);
    //map.panTo(latlng); //change it to map to your location
   }
-   function moveMarker2(map, marker2, latlng) {
-   marker2.setPosition(latlng);
-   map.panTo(latlng); //change it to map to your location
+   function moveMarker2(map, marker, latlng) {
+   marker.setPosition(latlng);
+   map.panTo(latlng); 
   }
 
   function autoRefresh(map, pathCoords) {
    var i, route, marker;
-   
-   var j, route2, marker2;
-   
+    var j, route2, marker2;
    route = new google.maps.Polyline({
     path: [],
     geodesic : true,
@@ -61,17 +59,17 @@
     map:map
    });
    
-   marker=new google.maps.Marker({map:map, icon:"http://i.imgur.com/VaGxAl9.png"});
+  marker=new google.maps.Marker({map:map, icon:"http://i.imgur.com/VaGxAl9.png"});
 	marker2=new google.maps.Marker({map:map, icon:"http://www.wcbuzz.com/file/2015/09/car-service-car-with-tool-icon-on-yellow-map-pointer-vector-illustration_187389968.jpg.png"});
 
    for (i = 0; i < pathCoords.length; i++) {    
     setTimeout(function(coords) {
      route.getPath().push(coords);
      moveMarker(map, marker, coords);
-    }, 750 * i, pathCoords[i]);
+    }, 650 * i, pathCoords[i]);
    }
       for (j = 0; j < pathCoords.length; j++) {    
-    setTimeout(function(coords) {
+    setTimeout(function(coords2) {
      route2.getPath().push(coords);
      moveMarker2(map, marker2, coords);
     }, 1000 * j, pathCoords[j]);
@@ -102,9 +100,9 @@
     destination:end2,
     travelMode: google.maps.TravelMode.DRIVING
    };
-   directionsService2.route2(request2, function(result2, status2) {
-    if (status2 == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result2.routes[0].overview_path);
+   directionsService2.route(request2, function(result, status) { //when just route it uses new coords, when route2 it uses old coords
+    if (status == google.maps.DirectionsStatus.OK) {
+     autoRefresh(map, result.routes[0].overview_path);
     }
    });
   }
