@@ -76,7 +76,7 @@
    var end2 = new google.maps.LatLng(38.656456, -90.309841);
    var alertOnce = 1;
    if(alertOnce){
-   setInterval(function(){
+   setTimeout (function(){
    var msg = new SpeechSynthesisUtterance('There is an ambulance approaching your vicinity. Please proceed with caution.');
     window.speechSynthesis.speak(msg);
    alert("There is an ambulance approaching your vicinity. Please proceed with caution.");
