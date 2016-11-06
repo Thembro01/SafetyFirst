@@ -2,9 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Animated route</title>
+ <title>Safety First</title>
  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
  <meta charset="utf-8">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='custom.css' rel='stylesheet' type='text/css'>
  <style>
   html, body, #map {
    height: 100%;
@@ -71,8 +74,14 @@
 
   google.maps.event.addDomListener(window, 'load', initialize);
  </script>
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
-<body>
+<body style="background-color:powderblue;">
+<div class="container">
+<div class="row"><div class="col-lg-8 col-lg-offset-5">
+<font color="red"><h1><b> SafetyFirst </b></h1></font>
+</div></div></div>
  <div id="map"></div>
 </body>
 </html>
