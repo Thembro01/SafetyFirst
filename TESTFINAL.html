@@ -66,7 +66,7 @@
    };
    directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result.routes[0].overview_path, marker, 600);
+     autoRefresh(map, result.routes[0].overview_path, marker, 300);
     }
    });
   }
@@ -80,7 +80,7 @@
    var msg = new SpeechSynthesisUtterance('There is an ambulance approaching your vicinity. Please proceed with caution.');
     window.speechSynthesis.speak(msg);
    alert("There is an ambulance approaching your vicinity. Please proceed with caution.");
-   alert = 0;},8000);
+   alert = 0;},4000);
    }
    marker2=new google.maps.Marker({map:map, icon:"https://i.imgur.com/hQQcUNl.png"});
    var request2 = {
@@ -90,7 +90,7 @@
    };
    directionsService2.route(request2, function(result, status) { //when just route it uses new coords, when route2 it uses old coords
     if (status == google.maps.DirectionsStatus.OK) {
-     autoRefresh(map, result.routes[0].overview_path, marker2, 5000);
+     autoRefresh(map, result.routes[0].overview_path, marker2, 3000);
     }
    });
   }
